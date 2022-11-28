@@ -8,7 +8,7 @@ import java.util.Map;
 public class LempelZivWelch {
 
     public static List<Integer> encode(String text) {
-        int dictSize = 256;
+        int dictSize = getDictSize();
         Map<String, Integer> dictionary = new HashMap<>();
         for (int i = 0; i < dictSize; i++) {
             dictionary.put(String.valueOf((char) i), i);
@@ -33,7 +33,7 @@ public class LempelZivWelch {
     }
 
     public static String decode(List<Integer> encodedText) {
-        int dictSize = 256;
+        int dictSize = getDictSize();
         Map<Integer, String> dictionary = new HashMap<>();
         for (int i = 0; i < dictSize; i++) {
             dictionary.put(i, String.valueOf((char) i));
@@ -50,6 +50,10 @@ public class LempelZivWelch {
             characters = entry;
         }
         return result.toString();
+    }
+
+    private static int getDictSize() {
+        return 1169;
     }
 
 }
