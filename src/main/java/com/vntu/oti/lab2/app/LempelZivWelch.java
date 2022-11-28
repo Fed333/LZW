@@ -7,8 +7,11 @@ import java.util.Map;
 
 public class LempelZivWelch {
 
+    //11 розрядне ущільнення LZW
+    private final static int bitrate = 2048;
+
     public static List<Integer> encode(String text) {
-        int dictSize = getDictSize();
+        int dictSize = bitrate;
         Map<String, Integer> dictionary = new HashMap<>();
         for (int i = 0; i < dictSize; i++) {
             dictionary.put(String.valueOf((char) i), i);
@@ -33,7 +36,7 @@ public class LempelZivWelch {
     }
 
     public static String decode(List<Integer> encodedText) {
-        int dictSize = getDictSize();
+        int dictSize = bitrate;
         Map<Integer, String> dictionary = new HashMap<>();
         for (int i = 0; i < dictSize; i++) {
             dictionary.put(i, String.valueOf((char) i));
@@ -50,10 +53,6 @@ public class LempelZivWelch {
             characters = entry;
         }
         return result.toString();
-    }
-
-    private static int getDictSize() {
-        return 1169;
     }
 
 }
