@@ -9,11 +9,8 @@ import static com.vntu.oti.lab2.app.LempelZivWelch.encode;
 
 public class MainApp {
 
-    private static Scanner in = new Scanner(System.in);
+    private static final Scanner in = new Scanner(System.in);
 
-    /*
-     * Video Reference: https://youtu.be/1KzUikIae6k
-     */
     public static void main(String[] args) {
 
         System.out.print("Введіть рядок: ");
